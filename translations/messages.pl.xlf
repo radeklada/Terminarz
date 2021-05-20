@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="title_record_list">
+                <source>title_record_list</source>
+                <target>Lista</target>
+            </trans-unit>
+            <trans-unit id="label_actions">
+                <source>label_actions</source>
+                <target>Akcje</target>
+            </trans-unit>
+            <trans-unit id="message_empty_list">
+                <source>message_empty_list</source>
+                <target>Lista jest pusta</target>
+            </trans-unit>
+            <trans-unit id="action_edit">
+                <source>action_edit</source>
+                <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="action_delete">
+                <source>action_delete</source>
+                <target>Usuń</target>
+            </trans-unit>
+            <trans-unit id="contact_list_title">
+                <source>contact_list_title</source>
+                <target>Lista kontaktów</target>
+            </trans-unit>
+            <trans-unit id="category_list_title">
+                <source>category_list_title</source>
+                <target>Lista kategorii</target>
+            </trans-unit>
+            <trans-unit id="id">
+                <source>id</source>
+                <target>Identyfikator</target>
+            </trans-unit>
+            <trans-unit id="label_title">
+                <source>label_title</source>
+                <target>Tytuł</target>
+            </trans-unit>
+            <trans-unit id="contact_first_name">
+                <source>contact_first_name</source>
+                <target>Imię</target>
+            </trans-unit>
+            <trans-unit id="contact_last_name">
+                <source>contact_last_name</source>
+                <target>Nazwisko</target>
+            </trans-unit>
+            <trans-unit id="contact_phone_number">
+                <source>contact_phone_number</source>
+                <target>Telefon</target>
+            </trans-unit>
+            <trans-unit id="contact_email">
+                <source>contact_email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="category_name">
+                <source>category_name</source>
+                <target>Nazwa</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}
+        {{ 'contact_list_title'|trans }}
+    {% endblock %}
+
+    {% block body %}
+        <h1>{{ 'contact_list_title'|trans }}</h1>
+        {% if pagination is defined and pagination.items|length %}
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ knp_pagination_sortable(pagination, 'id'|trans, 'contact.id') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'contact_first_name'|trans, 'contact.firstName') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'contact_last_name'|trans, 'contact.lastName') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'contact_email'|trans, 'contact.email') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'contact_phone_number'|trans, 'contact.phoneNumber') }}</th>
+                    <th>{{ 'label_actions'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for contact in pagination.items %}
+                    <tr>
+                        <td>{{ contact.id }}</td>
+                        <td>{{ contact.firstName }}</td>
+                        <td>{{ contact.lastName }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.phoneNumber }}</td>
+                        <td>
+                            <a class="btn btn-primary" href="#{#  {{ url('contact_show', {id: contact.id}) }}#}"
+                               title="{{ 'action_edit'|trans }}">
+                                {{ 'action_edit'|trans }}
+                            </a>
+                            <a class="btn btn-danger" href="#{#  {{ url('contact_show', {id: contact.id}) }}#}"
+                               title="{{ 'action_delete'|trans }}">
+                                {{ 'action_delete'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+        {% else %}
+            <p>
+                {{ 'message_empty_list'|trans }}
+            </p>
+        {% endif %}
+    {% endblock %}

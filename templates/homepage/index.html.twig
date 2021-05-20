@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+        <a class="btn btn-primary" href="{{ url('contact_index') }}">{{ 'contact_list_title'|trans }}</a>
+        <a class="btn btn-primary" href="{{ url('category_index') }}">{{ 'category_list_title'|trans }}</a>
+    {% endblock %}
