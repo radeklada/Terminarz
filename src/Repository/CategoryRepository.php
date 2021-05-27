@@ -28,4 +28,28 @@ class CategoryRepository extends ServiceEntityRepository
             ->createQueryBuilder('category')
             ->orderBy('category.name', 'ASC');
     }
+
+    /**
+     * Save record.
+     * @param \App\Entity\Category $category Category entity
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function save(Category $category): void
+    {
+        $this->_em->persist($category);
+        $this->_em->flush();
+    }
+
+    /**
+     * Delete record.
+     * @param \App\Entity\Category $category Category entity
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Category $category): void
+    {
+        $this->_em->remove($category);
+        $this->_em->flush();
+    }
 }

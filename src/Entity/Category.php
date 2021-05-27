@@ -26,7 +26,7 @@ class Category
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=false)
      */
-    private $name;
+    private $name = '';
 
     /**
      * @return int
@@ -50,5 +50,13 @@ class Category
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getName();
     }
 }

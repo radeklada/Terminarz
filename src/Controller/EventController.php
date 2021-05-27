@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Contact;
-use App\Form\ContactFormType;
-use App\Repository\ContactRepository;
+use App\Entity\Event;
+use App\Form\EventFormType;
+use App\Repository\EventRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,37 +12,54 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class ContactController
- * @Route("/contact")
+ * Class EventController
+ * @Route("/event")
  */
-class ContactController extends AbstractController
+class EventController extends AbstractController
 {
     /**
      * @return Response HTTP response
      * @Route(
      *     "/",
      *     methods={"GET"},
-     *     name="contact_index",
+     *     name="event_index",
      * )
      */
-    public function index(Request $request, ContactRepository $contactRepository, PaginatorInterface $paginator): Response
+    public function index(Request $request, EventRepository $eventRepository, PaginatorInterface $paginator): Response
     {
         $pagination = $paginator->paginate(
-            $contactRepository->queryAll(),
+            $eventRepository->queryAll(),
             $request->query->getInt('page', 1),
-            ContactRepository::PAGINATOR_ITEMS_PER_PAGE
+            EventRepository::PAGINATOR_ITEMS_PER_PAGE
         );
 
         return $this->render(
-            'contact/index.html.twig',
+            'event/index.html.twig',
             ['pagination' => $pagination]
         );
     }
 
     /**
+     * @return Response HTTP response
+     * @Route(
+     *     "/",
+     *     methods={"GET"},
+     *     name="event_search",
+     * )
+     */
+    public function search(Request $request): Response
+    {
+        return $this->render(
+            'event/search.html.twig',
+            []
+        );
+    }
+
+
+    /**
      * Create action.
      * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Repository\CategoryRepository        $contactRepository Contact repository
+     * @param \App\Repository\CategoryRepository        $eventRepository Contact repository
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
@@ -50,23 +67,23 @@ class ContactController extends AbstractController
      * @Route(
      *     "/create",
      *     methods={"GET", "POST"},
-     *     name="contact_create",
+     *     name="event_create",
      * )
      */
-    public function create(Request $request, ContactRepository $contactRepository): Response
+    public function create(Request $request, EventRepository $eventRepository): Response
     {
-        $contact = new Contact();
-        $form = $this->createForm(ContactFormType::class, $contact);
+        $event = new Event();
+        $form = $this->createForm(EventFormType::class, $event);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $contactRepository->save($contact);
+            $eventRepository->save($event);
 
-            return $this->redirectToRoute('contact_index');
+            return $this->redirectToRoute('event_index');
         }
 
         return $this->render(
-            'contact/create.html.twig',
+            'event/create.html.twig',
             ['form' => $form->createView()]
         );
     }
@@ -75,8 +92,8 @@ class ContactController extends AbstractController
      * Edit action.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Category                      $contact           Contact entity
-     * @param \App\Repository\CategoryRepository        $contactRepository Contact repository
+     * @param \App\Entity\Category                      $event           Contact entity
+     * @param \App\Repository\CategoryRepository        $eventRepository Contact repository
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
@@ -85,27 +102,27 @@ class ContactController extends AbstractController
      *     "/{id}/edit",
      *     methods={"GET", "PUT"},
      *     requirements={"id": "[1-9]\d*"},
-     *     name="contact_edit",
+     *     name="event_edit",
      * )
      */
-    public function edit(Request $request, Contact $contact, ContactRepository $contactRepository): Response
+    public function edit(Request $request, Event $event, EventRepository $eventRepository): Response
     {
-        $form = $this->createForm(ContactFormType::class, $contact, ['method' => 'PUT']);
+        $form = $this->createForm(EventFormType::class, $event, ['method' => 'PUT']);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $contactRepository->save($contact);
+            $eventRepository->save($event);
 
             $this->addFlash('success', 'message_updated_successfully');
 
-            return $this->redirectToRoute('contact_index');
+            return $this->redirectToRoute('event_index');
         }
 
         return $this->render(
-            'contact/edit.html.twig',
+            'event/edit.html.twig',
             [
                 'form' => $form->createView(),
-                'contact' => $contact,
+                'event' => $event,
             ]
         );
     }

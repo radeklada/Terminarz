@@ -60,6 +60,15 @@ class Event
     private $category;
 
     /**
+     * Event constructor
+     */
+    public function __construct()
+    {
+        $this->startTime = new \DateTime();
+        $this->endTime = new \DateTime();
+    }
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -72,7 +81,7 @@ class Event
      */
     public function getTitle(): string
     {
-        return $this->title;
+        return (string) $this->title;
     }
 
     /**
@@ -134,7 +143,7 @@ class Event
     /**
      * @return Category
      */
-    public function getCategory(): Category
+    public function getCategory(): ?Category
     {
         return $this->category;
     }

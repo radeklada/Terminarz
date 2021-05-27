@@ -2,18 +2,18 @@
 
 namespace App\Repository;
 
-use App\Entity\Contact;
+use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
-class ContactRepository extends ServiceEntityRepository
+class EventRepository extends ServiceEntityRepository
 {
     const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Contact::class);
+        parent::__construct($registry, Event::class);
     }
 
     /**
@@ -23,19 +23,19 @@ class ContactRepository extends ServiceEntityRepository
     public function queryAll(): QueryBuilder
     {
         return $this
-            ->createQueryBuilder('contact')
-            ->orderBy('contact.lastName', 'ASC');
+            ->createQueryBuilder('event')
+            ->orderBy('event.id', 'ASC');
     }
 
     /**
      * Save record.
-     * @param \App\Entity\Category $contact Contact entity
+     * @param \App\Entity\Category $event Event entity
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function save(Contact $contact): void
+    public function save(Event $event): void
     {
-        $this->_em->persist($contact);
+        $this->_em->persist($event);
         $this->_em->flush();
     }
 }

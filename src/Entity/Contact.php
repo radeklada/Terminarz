@@ -62,7 +62,7 @@ class Contact
      */
     public function getFirstName(): string
     {
-        return $this->firstName;
+        return (string) $this->firstName;
     }
 
     /**
@@ -78,7 +78,7 @@ class Contact
      */
     public function getLastName(): ?string
     {
-        return $this->lastName;
+        return (string) $this->lastName;
     }
 
     /**
@@ -94,7 +94,7 @@ class Contact
      */
     public function getPhoneNumber(): string
     {
-        return $this->phoneNumber;
+        return (string) $this->phoneNumber;
     }
 
     /**
