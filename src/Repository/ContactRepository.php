@@ -24,7 +24,7 @@ class ContactRepository extends ServiceEntityRepository
     {
         return $this
             ->createQueryBuilder('contact')
-            ->orderBy('contact.lastName', 'ASC');
+            ->orderBy('contact.id', 'DESC');
     }
 
     /**
@@ -36,6 +36,18 @@ class ContactRepository extends ServiceEntityRepository
     public function save(Contact $contact): void
     {
         $this->_em->persist($contact);
+        $this->_em->flush();
+    }
+
+    /**
+     * Delete record.
+     * @param \App\Entity\Contact $contact Contact entity
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Contact $contact): void
+    {
+        $this->_em->remove($contact);
         $this->_em->flush();
     }
 }

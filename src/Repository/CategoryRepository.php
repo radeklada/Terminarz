@@ -52,4 +52,26 @@ class CategoryRepository extends ServiceEntityRepository
         $this->_em->remove($category);
         $this->_em->flush();
     }
+
+    /**
+     * @return array
+     */
+    public function getNamesForFormFilter()
+    {
+        $result = ['' => null];
+
+        $records = $this
+            ->createQueryBuilder('category')
+            ->select('category.id, category.name')
+            ->orderBy('category.name', 'ASC')
+            ->getQuery()
+            ->getArrayResult();
+        ;
+
+        foreach ($records as $rec) {
+            $result[$rec['name']] = $rec['id'];
+        }
+
+        return $result;
+    }
 }

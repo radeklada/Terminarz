@@ -60,6 +60,16 @@ class Event
     private $category;
 
     /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+    /**
      * Event constructor
      */
     public function __construct()
@@ -154,5 +164,21 @@ class Event
     public function setCategory(Category $category): void
     {
         $this->category = $category;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
     }
 }

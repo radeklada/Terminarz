@@ -7,6 +7,7 @@ use App\Form\ContactFormType;
 use App\Repository\ContactRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -60,6 +61,7 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $contact->setUser($this->getUser());
             $contactRepository->save($contact);
 
             return $this->redirectToRoute('contact_index');
@@ -94,6 +96,7 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $contact->setUser($this->getUser());
             $contactRepository->save($contact);
 
             $this->addFlash('success', 'message_updated_successfully');
@@ -103,6 +106,50 @@ class ContactController extends AbstractController
 
         return $this->render(
             'contact/edit.html.twig',
+            [
+                'form' => $form->createView(),
+                'contact' => $contact,
+            ]
+        );
+    }
+
+    /**
+     * Delete action.
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
+     * @param \App\Entity\Category                      $contact           Contact entity
+     * @param \App\Repository\CategoryRepository        $contactRepository Contact repository
+     *
+     * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     *
+     * @Route(
+     *     "/{id}/delete",
+     *     methods={"GET", "DELETE"},
+     *     requirements={"id": "[1-9]\d*"},
+     *     name="contact_delete",
+     * )
+     */
+    public function delete(Request $request, Contact $contact, ContactRepository $contactRepository): Response
+    {
+        $form = $this->createForm(FormType::class, $contact, ['method' => 'DELETE']);
+        $form->handleRequest($request);
+
+        if ($request->isMethod('DELETE') && !$form->isSubmitted()) {
+            $form->submit($request->request->get($form->getName()));
+        }
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $contactRepository->delete($contact);
+            $this->addFlash('success', 'message.deleted_successfully');
+
+            return $this->redirectToRoute('contact_index');
+        }
+
+        return $this->render(
+            'contact/delete.html.twig',
             [
                 'form' => $form->createView(),
                 'contact' => $contact,

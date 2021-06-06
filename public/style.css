@@ -1,2 +1,3 @@
 .date-container > div > div > div {display: inline-block;}
 .button-container {margin-bottom: 1em;}
+#event_list .button-container form {width: 100%;}

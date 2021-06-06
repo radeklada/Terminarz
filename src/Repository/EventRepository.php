@@ -24,7 +24,7 @@ class EventRepository extends ServiceEntityRepository
     {
         return $this
             ->createQueryBuilder('event')
-            ->orderBy('event.id', 'ASC');
+            ->orderBy('event.id', 'DESC');
     }
 
     /**
@@ -36,6 +36,19 @@ class EventRepository extends ServiceEntityRepository
     public function save(Event $event): void
     {
         $this->_em->persist($event);
+        $this->_em->flush();
+    }
+
+
+    /**
+     * Delete record.
+     * @param \App\Entity\Event $event Event entity
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Event $event): void
+    {
+        $this->_em->remove($event);
         $this->_em->flush();
     }
 }

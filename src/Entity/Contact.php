@@ -26,21 +26,21 @@ class Contact
      *
      * @ORM\Column(name="first_name", type="string", length=30, nullable=false)
      */
-    private $firstName;
+    private $firstName = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=30, nullable=false)
      */
-    private $lastName;
+    private $lastName = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="phone_number", type="string", length=20, nullable=false)
      */
-    private $phoneNumber;
+    private $phoneNumber = '';
 
     /**
      * @var string|null
@@ -48,6 +48,16 @@ class Contact
      * @ORM\Column(name="email", type="string", length=45, nullable=true)
      */
     private $email;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
 
     /**
      * @return int
@@ -62,7 +72,7 @@ class Contact
      */
     public function getFirstName(): string
     {
-        return (string) $this->firstName;
+        return $this->firstName;
     }
 
     /**
@@ -74,17 +84,17 @@ class Contact
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getLastName(): ?string
+    public function getLastName(): string
     {
-        return (string) $this->lastName;
+        return $this->lastName;
     }
 
     /**
-     * @param string|null $lastName
+     * @param string $lastName
      */
-    public function setLastName(?string $lastName): void
+    public function setLastName(string $lastName): void
     {
         $this->lastName = $lastName;
     }
@@ -94,7 +104,7 @@ class Contact
      */
     public function getPhoneNumber(): string
     {
-        return (string) $this->phoneNumber;
+        return $this->phoneNumber;
     }
 
     /**
@@ -119,5 +129,21 @@ class Contact
     public function setEmail(?string $email): void
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
     }
 }
