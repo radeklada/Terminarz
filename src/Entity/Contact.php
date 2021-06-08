@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact
@@ -25,6 +26,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=30, nullable=false)
+     * @Assert\NotBlank()
      */
     private $firstName = '';
 
@@ -32,6 +34,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=30, nullable=false)
+     * @Assert\NotBlank()
      */
     private $lastName = '';
 
@@ -46,6 +49,7 @@ class Contact
      * @var string|null
      *
      * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     * @Assert\Email()
      */
     private $email;
 
@@ -76,11 +80,11 @@ class Contact
     }
 
     /**
-     * @param string $firstName
+     * @param string|null $firstName
      */
-    public function setFirstName(string $firstName): void
+    public function setFirstName(?string $firstName): void
     {
-        $this->firstName = $firstName;
+        $this->firstName = (string) $firstName;
     }
 
     /**
@@ -92,11 +96,11 @@ class Contact
     }
 
     /**
-     * @param string $lastName
+     * @param string|null $lastName
      */
-    public function setLastName(string $lastName): void
+    public function setLastName(?string $lastName): void
     {
-        $this->lastName = $lastName;
+        $this->lastName = (string) $lastName;
     }
 
     /**
@@ -108,11 +112,11 @@ class Contact
     }
 
     /**
-     * @param string $phoneNumber
+     * @param string|null $phoneNumber
      */
-    public function setPhoneNumber(string $phoneNumber): void
+    public function setPhoneNumber(?string $phoneNumber): void
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->phoneNumber = (string) $phoneNumber;
     }
 
     /**

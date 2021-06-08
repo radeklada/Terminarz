@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Event
@@ -25,8 +26,9 @@ class Event
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     * @Assert\NotBlank()
      */
-    private $title;
+    private $title = '';
 
     /**
      * @var string|null
@@ -39,6 +41,7 @@ class Event
      * @var \DateTime
      *
      * @ORM\Column(name="start_time", type="datetime", nullable=false)
+     * @Assert\Type(type="\DateTimeInterface")
      */
     private $startTime;
 
@@ -46,6 +49,7 @@ class Event
      * @var \DateTime
      *
      * @ORM\Column(name="end_time", type="datetime", nullable=false)
+     * @Assert\Type(type="\DateTimeInterface")
      */
     private $endTime;
 
@@ -91,15 +95,15 @@ class Event
      */
     public function getTitle(): string
     {
-        return (string) $this->title;
+        return $this->title;
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      */
-    public function setTitle(string $title): void
+    public function setTitle(?string $title): void
     {
-        $this->title = $title;
+        $this->title = (string) $title;
     }
 
     /**

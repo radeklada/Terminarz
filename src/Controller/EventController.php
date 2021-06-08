@@ -30,8 +30,11 @@ class EventController extends AbstractController
      */
     public function index(Request $request, EventRepository $eventRepository, PaginatorInterface $paginator, CategoryRepository $categoryRepository): Response
     {
+        $filters = [];
+        $filters['category_id'] = $request->query->has('category') ? (int) $request->query->get('category') : null;
+
         $pagination = $paginator->paginate(
-            $eventRepository->queryAll(),
+            $eventRepository->queryAll($filters),
             $request->query->getInt('page', 1),
             EventRepository::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -51,23 +54,6 @@ class EventController extends AbstractController
             ]
         );
     }
-
-    /**
-     * @return Response HTTP response
-     * @Route(
-     *     "/search",
-     *     methods={"GET"},
-     *     name="event_search",
-     * )
-     */
-    public function search(Request $request): Response
-    {
-        return $this->render(
-            'event/search.html.twig',
-            []
-        );
-    }
-
 
     /**
      * Create action.

@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col col-lg">
                 <h1>{{ 'title_contact_edit'|trans({'%id%': contact.id|default('')}) }}</h1>
-                {{ form_start(form, { method: 'PUT', action: url('contact_edit', {id: contact.id}) }) }}
+                {{ form_start(form, { method: 'PUT', action: url('contact_edit', {id: contact.id}), attr: {'novalidate': 'novalidate'} }) }}
                 <div class="form-group">
                     {{ form_row(form.firstName, {'attr': {'class': 'form-control'}}) }}
                 </div>

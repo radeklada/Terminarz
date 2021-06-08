@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
@@ -25,6 +26,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=false)
+     * @Assert\NotBlank()
      */
     private $name = '';
 
@@ -45,11 +47,11 @@ class Category
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      */
-    public function setName(string $name): void
+    public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name = (string) $name;
     }
 
     /**

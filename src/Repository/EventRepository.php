@@ -18,13 +18,22 @@ class EventRepository extends ServiceEntityRepository
 
     /**
      * Query all records.
+     * @param array $filters
      * @return QueryBuilder Query builder
      */
-    public function queryAll(): QueryBuilder
+    public function queryAll(array $filters = []): QueryBuilder
     {
-        return $this
+        $qb = $this
             ->createQueryBuilder('event')
+            ->join('event.category', 'category')
             ->orderBy('event.id', 'DESC');
+
+        if(array_key_exists('category_id', $filters) && $filters['category_id'] > 0) {
+            $qb->where('event.category = :category_id')
+                ->setParameter('category_id', $filters['category_id']);
+        }
+
+        return $qb;
     }
 
     /**

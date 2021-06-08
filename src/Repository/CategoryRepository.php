@@ -58,7 +58,7 @@ class CategoryRepository extends ServiceEntityRepository
      */
     public function getNamesForFormFilter()
     {
-        $result = ['' => null];
+        $result = ['' => 0];
 
         $records = $this
             ->createQueryBuilder('category')

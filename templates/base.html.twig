@@ -21,7 +21,7 @@
 
     <body>
     <div class="container-fluid">
-        {% include 'menu.html.twig' %}
+        {% include 'menu.html.twig' with {'pathInfo': app.request().pathInfo} %}
         {% include 'flash.html.twig' %}
         {% block body %}{% endblock %}
     </div>

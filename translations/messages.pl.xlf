@@ -58,6 +58,130 @@
                 <source>category_name</source>
                 <target>Nazwa</target>
             </trans-unit>
+            <trans-unit id="menu_homepage">
+                <source>menu_homepage</source>
+                <target>Strona główna</target>
+            </trans-unit>
+            <trans-unit id="menu_event">
+                <source>menu_event</source>
+                <target>Wydarzenia</target>
+            </trans-unit>
+            <trans-unit id="menu_contact">
+                <source>menu_contact</source>
+                <target>Kontakty</target>
+            </trans-unit>
+            <trans-unit id="menu_category">
+                <source>menu_category</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="menu_logout">
+                <source>menu_logout</source>
+                <target>Wyloguj</target>
+            </trans-unit>
+            <trans-unit id="event_list_title">
+                <source>event_list_title</source>
+                <target>Lista wydarzeń</target>
+            </trans-unit>
+            <trans-unit id="event_search_by_category">
+                <source>event_search_by_category</source>
+                <target>Wyszukaj po kategorii</target>
+            </trans-unit>
+            <trans-unit id="action_filter">
+                <source>action_filter</source>
+                <target>Wyszukaj</target>
+            </trans-unit>
+            <trans-unit id="action_create">
+                <source>action_create</source>
+                <target>Dodaj</target>
+            </trans-unit>
+            <trans-unit id="action_back_to_list">
+                <source>action_back_to_list</source>
+                <target>Powrót</target>
+            </trans-unit>
+            <trans-unit id="action_save">
+                <source>action_save</source>
+                <target>Zapisz</target>
+            </trans-unit>
+            <trans-unit id="event_title">
+                <source>event_title</source>
+                <target>Tytuł</target>
+            </trans-unit>
+            <trans-unit id="event_description">
+                <source>event_description</source>
+                <target>Opis</target>
+            </trans-unit>
+            <trans-unit id="event_start_time">
+                <source>event_start_time</source>
+                <target>Początek</target>
+            </trans-unit>
+            <trans-unit id="event_end_time">
+                <source>event_end_time</source>
+                <target>Koniec</target>
+            </trans-unit>
+            <trans-unit id="event_category">
+                <source>event_category</source>
+                <target>Kategoria</target>
+            </trans-unit>
+            <trans-unit id="title_event_create">
+                <source>title_event_create</source>
+                <target>Dodaj wydarzenie</target>
+            </trans-unit>
+            <trans-unit id="title_event_edit">
+                <source>title_event_edit</source>
+                <target>Edytuj wydarzenie</target>
+            </trans-unit>
+            <trans-unit id="title_event_delete">
+                <source>title_event_delete</source>
+                <target>Usuń wydarzenie</target>
+            </trans-unit>
+            <trans-unit id="alert_delete_element">
+                <source>alert_delete_element</source>
+                <target>Uwaga: element zostanie usunięty. Jesteś pewien?</target>
+            </trans-unit>
+            <trans-unit id="title_contact_create">
+                <source>title_contact_create</source>
+                <target>Dodaj kontakt</target>
+            </trans-unit>
+            <trans-unit id="title_contact_edit">
+                <source>title_contact_edit</source>
+                <target>Edytuj kontakt</target>
+            </trans-unit>
+            <trans-unit id="title_contact_delete">
+                <source>title_contact_delete</source>
+                <target>Usuń kontakt</target>
+            </trans-unit>
+            <trans-unit id="title_category_create">
+                <source>title_category_create</source>
+                <target>Dodaj kategorię</target>
+            </trans-unit>
+            <trans-unit id="title_category_edit">
+                <source>title_category_edit</source>
+                <target>Edytuj kategorię</target>
+            </trans-unit>
+            <trans-unit id="title_category_delete">
+                <source>title_category_delete</source>
+                <target>Usuń kategorię</target>
+            </trans-unit>
+            <trans-unit id="message.deleted_successfully">
+                <source>message.deleted_successfully</source>
+                <target>Element został usunięty</target>
+            </trans-unit>
+            <trans-unit id="login_please">
+                <source>login_please</source>
+                <target>Logowanie</target>
+            </trans-unit>
+            <trans-unit id="user_email">
+                <source>user_email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="user_password">
+                <source>user_password</source>
+                <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="action_sign_in">
+                <source>action_sign_in</source>
+                <target>Zaloguj</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

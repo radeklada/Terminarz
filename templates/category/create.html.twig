@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col col-lg">
                 <h1>{{ 'title_category_create'|trans }}</h1>
-                {{ form_start(form, { method: 'POST', action: url('category_create') }) }}
+                {{ form_start(form, { method: 'POST', action: url('category_create'), attr: {'novalidate': 'novalidate'} }) }}
                 <div class="form-group">
                     {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
                 </div>

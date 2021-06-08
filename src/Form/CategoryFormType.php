@@ -28,7 +28,6 @@ class CategoryFormType extends AbstractType
             TextType::class,
             [
                 'label' => 'category_name',
-                'required' => true,
             ]
         );
     }
