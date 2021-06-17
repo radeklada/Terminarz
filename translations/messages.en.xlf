@@ -12,7 +12,7 @@
             </trans-unit>
             <trans-unit id="message_empty_list">
                 <source>message_empty_list</source>
-                <target>List is emty</target>
+                <target>List is empty</target>
             </trans-unit>
             <trans-unit id="action_edit">
                 <source>action_edit</source>
@@ -24,15 +24,15 @@
             </trans-unit>
             <trans-unit id="contact_list_title">
                 <source>contact_list_title</source>
-                <target>Contacts List</target>
+                <target>Contact list</target>
             </trans-unit>
             <trans-unit id="category_list_title">
                 <source>category_list_title</source>
-                <target>Category List</target>
+                <target>Category list</target>
             </trans-unit>
             <trans-unit id="id">
                 <source>id</source>
-                <target>ID</target>
+                <target>Id</target>
             </trans-unit>
             <trans-unit id="label_title">
                 <source>label_title</source>
@@ -48,7 +48,7 @@
             </trans-unit>
             <trans-unit id="contact_phone_number">
                 <source>contact_phone_number</source>
-                <target>Phone Number</target>
+                <target>Phone number</target>
             </trans-unit>
             <trans-unit id="contact_email">
                 <source>contact_email</source>
@@ -60,7 +60,7 @@
             </trans-unit>
             <trans-unit id="menu_homepage">
                 <source>menu_homepage</source>
-                <target>Main Page</target>
+                <target>Main page</target>
             </trans-unit>
             <trans-unit id="menu_event">
                 <source>menu_event</source>
@@ -80,12 +80,12 @@
             </trans-unit>
             <trans-unit id="event_list_title">
                 <source>event_list_title</source>
-                <target>Event List</target>
+                <target>Event list</target>
             </trans-unit>
             <trans-unit id="event_search_by_category">
                 <source>event_search_by_category</source>
-                <target>Search By Category</target>
-            </trans-unit
+                <target>Search by category</target>
+            </trans-unit>
             <trans-unit id="action_filter">
                 <source>action_filter</source>
                 <target>Search</target>
@@ -124,15 +124,15 @@
             </trans-unit>
             <trans-unit id="title_event_create">
                 <source>title_event_create</source>
-                <target>Add Event</target>
+                <target>Add event</target>
             </trans-unit>
             <trans-unit id="title_event_edit">
                 <source>title_event_edit</source>
-                <target>Edit Event</target>
+                <target>Event edit</target>
             </trans-unit>
             <trans-unit id="title_event_delete">
                 <source>title_event_delete</source>
-                <target>Delete Event</target>
+                <target>Delete event</target>
             </trans-unit>
             <trans-unit id="alert_delete_element">
                 <source>alert_delete_element</source>
@@ -140,39 +140,39 @@
             </trans-unit>
             <trans-unit id="title_contact_create">
                 <source>title_contact_create</source>
-                <target>Add Contact</target>
+                <target>Add contact</target>
             </trans-unit>
             <trans-unit id="title_contact_edit">
                 <source>title_contact_edit</source>
-                <target>Contact Edit</target>
+                <target>Edit contact</target>
             </trans-unit>
             <trans-unit id="title_contact_delete">
                 <source>title_contact_delete</source>
-                <target>Delete Category</target>
+                <target>Delete contact</target>
             </trans-unit>
             <trans-unit id="title_category_create">
                 <source>title_category_create</source>
-                <target>Add Category</target>
+                <target>Add category</target>
             </trans-unit>
             <trans-unit id="title_category_edit">
                 <source>title_category_edit</source>
-                <target>Edit Category</target>
+                <target>Edit category</target>
             </trans-unit>
             <trans-unit id="title_category_delete">
                 <source>title_category_delete</source>
-                <target>Delete Category</target>
+                <target>Delete category</target>
             </trans-unit>
             <trans-unit id="message_added_successfully">
                 <source>message_added_successfully</source>
-                <target>Element Added Successfully</target>
+                <target>Element added</target>
             </trans-unit>
             <trans-unit id="message_updated_successfully">
                 <source>message_updated_successfully</source>
-                <target>Element Updated Successfully</target>
+                <target>Element deleted</target>
             </trans-unit>
             <trans-unit id="message_deleted_successfully">
                 <source>message_deleted_successfully</source>
-                <target>Element Deleted Successfully</target>
+                <target>Element deleted</target>
             </trans-unit>
             <trans-unit id="login_please">
                 <source>login_please</source>
@@ -188,7 +188,7 @@
             </trans-unit>
             <trans-unit id="action_sign_in">
                 <source>action_sign_in</source>
-                <target>Sign In</target>
+                <target>Sign in</target>
             </trans-unit>
         </body>
     </file>
