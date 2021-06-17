@@ -4,179 +4,179 @@
         <body>
             <trans-unit id="title_record_list">
                 <source>title_record_list</source>
-                <target>Lista</target>
+                <target>List</target>
             </trans-unit>
             <trans-unit id="label_actions">
                 <source>label_actions</source>
-                <target>Akcje</target>
+                <target>Action</target>
             </trans-unit>
             <trans-unit id="message_empty_list">
                 <source>message_empty_list</source>
-                <target>Lista jest pusta</target>
+                <target>List is emty</target>
             </trans-unit>
             <trans-unit id="action_edit">
                 <source>action_edit</source>
-                <target>Edytuj</target>
+                <target>Edit</target>
             </trans-unit>
             <trans-unit id="action_delete">
                 <source>action_delete</source>
-                <target>Usuń</target>
+                <target>Delete</target>
             </trans-unit>
             <trans-unit id="contact_list_title">
                 <source>contact_list_title</source>
-                <target>Lista kontaktów</target>
+                <target>Contacts List</target>
             </trans-unit>
             <trans-unit id="category_list_title">
                 <source>category_list_title</source>
-                <target>Lista kategorii</target>
+                <target>Category List</target>
             </trans-unit>
             <trans-unit id="id">
                 <source>id</source>
-                <target>Identyfikator</target>
+                <target>ID</target>
             </trans-unit>
             <trans-unit id="label_title">
                 <source>label_title</source>
-                <target>Tytuł</target>
+                <target>Title</target>
             </trans-unit>
             <trans-unit id="contact_first_name">
                 <source>contact_first_name</source>
-                <target>Imię</target>
+                <target>Name</target>
             </trans-unit>
             <trans-unit id="contact_last_name">
                 <source>contact_last_name</source>
-                <target>Nazwisko</target>
+                <target>Surname</target>
             </trans-unit>
             <trans-unit id="contact_phone_number">
                 <source>contact_phone_number</source>
-                <target>Telefon</target>
+                <target>Phone Number</target>
             </trans-unit>
             <trans-unit id="contact_email">
                 <source>contact_email</source>
-                <target>Email</target>
+                <target>E-mail</target>
             </trans-unit>
             <trans-unit id="category_name">
                 <source>category_name</source>
-                <target>Nazwa</target>
+                <target>Name</target>
             </trans-unit>
             <trans-unit id="menu_homepage">
                 <source>menu_homepage</source>
-                <target>Strona główna</target>
+                <target>Main Page</target>
             </trans-unit>
             <trans-unit id="menu_event">
                 <source>menu_event</source>
-                <target>Wydarzenia</target>
+                <target>Events</target>
             </trans-unit>
             <trans-unit id="menu_contact">
                 <source>menu_contact</source>
-                <target>Kontakty</target>
+                <target>Contacts</target>
             </trans-unit>
             <trans-unit id="menu_category">
                 <source>menu_category</source>
-                <target>Kategorie</target>
+                <target>Category</target>
             </trans-unit>
             <trans-unit id="menu_logout">
                 <source>menu_logout</source>
-                <target>Wyloguj</target>
+                <target>Logout</target>
             </trans-unit>
             <trans-unit id="event_list_title">
                 <source>event_list_title</source>
-                <target>Lista wydarzeń</target>
+                <target>Event List</target>
             </trans-unit>
             <trans-unit id="event_search_by_category">
                 <source>event_search_by_category</source>
-                <target>Wyszukaj po kategorii</target>
-            </trans-unit>
+                <target>Search By Category</target>
+            </trans-unit
             <trans-unit id="action_filter">
                 <source>action_filter</source>
-                <target>Wyszukaj</target>
+                <target>Search</target>
             </trans-unit>
             <trans-unit id="action_create">
                 <source>action_create</source>
-                <target>Dodaj</target>
+                <target>Add</target>
             </trans-unit>
             <trans-unit id="action_back_to_list">
                 <source>action_back_to_list</source>
-                <target>Powrót</target>
+                <target>Back</target>
             </trans-unit>
             <trans-unit id="action_save">
                 <source>action_save</source>
-                <target>Zapisz</target>
+                <target>Save</target>
             </trans-unit>
             <trans-unit id="event_title">
                 <source>event_title</source>
-                <target>Tytuł</target>
+                <target>Title</target>
             </trans-unit>
             <trans-unit id="event_description">
                 <source>event_description</source>
-                <target>Opis</target>
+                <target>Description</target>
             </trans-unit>
             <trans-unit id="event_start_time">
                 <source>event_start_time</source>
-                <target>Początek</target>
+                <target>Begin</target>
             </trans-unit>
             <trans-unit id="event_end_time">
                 <source>event_end_time</source>
-                <target>Koniec</target>
+                <target>End</target>
             </trans-unit>
             <trans-unit id="event_category">
                 <source>event_category</source>
-                <target>Kategoria</target>
+                <target>Category</target>
             </trans-unit>
             <trans-unit id="title_event_create">
                 <source>title_event_create</source>
-                <target>Dodaj wydarzenie</target>
+                <target>Add Event</target>
             </trans-unit>
             <trans-unit id="title_event_edit">
                 <source>title_event_edit</source>
-                <target>Edytuj wydarzenie</target>
+                <target>Edit Event</target>
             </trans-unit>
             <trans-unit id="title_event_delete">
                 <source>title_event_delete</source>
-                <target>Usuń wydarzenie</target>
+                <target>Delete Event</target>
             </trans-unit>
             <trans-unit id="alert_delete_element">
                 <source>alert_delete_element</source>
-                <target>Uwaga: element zostanie usunięty. Jesteś pewien?</target>
+                <target>Alert: element will be deleted. Are you sure?</target>
             </trans-unit>
             <trans-unit id="title_contact_create">
                 <source>title_contact_create</source>
-                <target>Dodaj kontakt</target>
+                <target>Add Contact</target>
             </trans-unit>
             <trans-unit id="title_contact_edit">
                 <source>title_contact_edit</source>
-                <target>Edytuj kontakt</target>
+                <target>Contact Edit</target>
             </trans-unit>
             <trans-unit id="title_contact_delete">
                 <source>title_contact_delete</source>
-                <target>Usuń kontakt</target>
+                <target>Delete Category</target>
             </trans-unit>
             <trans-unit id="title_category_create">
                 <source>title_category_create</source>
-                <target>Dodaj kategorię</target>
+                <target>Add Category</target>
             </trans-unit>
             <trans-unit id="title_category_edit">
                 <source>title_category_edit</source>
-                <target>Edytuj kategorię</target>
+                <target>Edit Category</target>
             </trans-unit>
             <trans-unit id="title_category_delete">
                 <source>title_category_delete</source>
-                <target>Usuń kategorię</target>
+                <target>Delete Category</target>
             </trans-unit>
             <trans-unit id="message_added_successfully">
                 <source>message_added_successfully</source>
-                <target>Element został dodany</target>
+                <target>Element Added Successfully</target>
             </trans-unit>
             <trans-unit id="message_updated_successfully">
                 <source>message_updated_successfully</source>
-                <target>Element został edytowany</target>
+                <target>Element Updated Successfully</target>
             </trans-unit>
             <trans-unit id="message_deleted_successfully">
                 <source>message_deleted_successfully</source>
-                <target>Element został usunięty</target>
+                <target>Element Deleted Successfully</target>
             </trans-unit>
             <trans-unit id="login_please">
                 <source>login_please</source>
-                <target>Logowanie</target>
+                <target>Login</target>
             </trans-unit>
             <trans-unit id="user_email">
                 <source>user_email</source>
@@ -184,11 +184,11 @@
             </trans-unit>
             <trans-unit id="user_password">
                 <source>user_password</source>
-                <target>Hasło</target>
+                <target>Password</target>
             </trans-unit>
             <trans-unit id="action_sign_in">
                 <source>action_sign_in</source>
-                <target>Zaloguj</target>
+                <target>Sign In</target>
             </trans-unit>
         </body>
     </file>
