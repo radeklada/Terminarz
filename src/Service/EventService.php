@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Service;
 
@@ -7,6 +14,9 @@ use App\Repository\EventRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
+/**
+ * Class EventService
+ */
 class EventService
 {
     const PAGINATOR_ITEMS_PER_PAGE = 10;
@@ -16,6 +26,11 @@ class EventService
     /** @var PaginatorInterface */
     private $paginator;
 
+    /**
+     * EventService constructor.
+     * @param \App\Repository\EventRepository         $eventRepository
+     * @param \Knp\Component\Pager\PaginatorInterface $paginator
+     */
     public function __construct(EventRepository $eventRepository, PaginatorInterface $paginator)
     {
         $this->eventRepository = $eventRepository;
@@ -24,8 +39,9 @@ class EventService
 
     /**
      * @param array $filters
-     * @param int $page
-     * @return PaginationInterface
+     * @param int   $page
+     *
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface
      */
     public function createPaginatedList(array $filters, int $page): PaginationInterface
     {
@@ -38,7 +54,8 @@ class EventService
 
     /**
      * Zapisuje do bazy
-     * @param Event $event
+     * @param \App\Entity\Event $event
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -49,7 +66,8 @@ class EventService
 
     /**
      * Usuwa z bazy
-     * @param Event $event
+     * @param \App\Entity\Event $event
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */

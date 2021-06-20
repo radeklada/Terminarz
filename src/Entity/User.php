@@ -1,6 +1,10 @@
 <?php
-/**
- * User entity.
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
  */
 
 namespace App\Entity;
@@ -86,6 +90,7 @@ class User implements UserInterface
 
      * @Assert\NotBlank
      * @Assert\Type(type="string")
+     *
      * @SecurityAssert\UserPassword
      */
     private $password;

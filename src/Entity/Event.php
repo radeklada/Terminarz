@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Entity;
 
@@ -26,6 +33,7 @@ class Event
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     *
      * @Assert\NotBlank()
      */
     private $title = '';
@@ -41,6 +49,7 @@ class Event
      * @var \DateTime
      *
      * @ORM\Column(name="start_time", type="datetime", nullable=false)
+     *
      * @Assert\Type(type="\DateTimeInterface")
      */
     private $startTime;
@@ -49,12 +58,13 @@ class Event
      * @var \DateTime
      *
      * @ORM\Column(name="end_time", type="datetime", nullable=false)
+     *
      * @Assert\Type(type="\DateTimeInterface")
      */
     private $endTime;
 
     /**
-     * @var Category
+     * @var \App\Entity\Category
      *
      * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumns({
@@ -64,7 +74,7 @@ class Event
     private $category;
 
     /**
-     * @var User
+     * @var \App\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({

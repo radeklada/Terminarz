@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Controller;
 
@@ -7,17 +14,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+/**
+ * Class SecurityController
+ */
 class SecurityController extends AbstractController
 {
     /**
      * @Route("/login", name="app_login")
+     *
+     * @param \Symfony\Component\Security\Http\Authentication\AuthenticationUtils $authenticationUtils
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
-
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user

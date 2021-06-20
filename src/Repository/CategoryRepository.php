@@ -1,17 +1,28 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Repository;
 
 use App\Entity\Category;
-use App\Entity\Contact;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * Class CategoryRepository
+ */
 class CategoryRepository extends ServiceEntityRepository
 {
-    const PAGINATOR_ITEMS_PER_PAGE = 10;
-
+    /**
+     * CategoryRepository constructor.
+     * @param \Doctrine\Persistence\ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Category::class);
@@ -20,7 +31,7 @@ class CategoryRepository extends ServiceEntityRepository
     /**
      * Query all records.
      *
-     * @return QueryBuilder Query builder
+     * @return \Doctrine\ORM\QueryBuilder Query builder
      */
     public function queryAll(): QueryBuilder
     {
@@ -32,6 +43,7 @@ class CategoryRepository extends ServiceEntityRepository
     /**
      * Save record.
      * @param \App\Entity\Category $category Category entity
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -44,6 +56,7 @@ class CategoryRepository extends ServiceEntityRepository
     /**
      * Delete record.
      * @param \App\Entity\Category $category Category entity
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */

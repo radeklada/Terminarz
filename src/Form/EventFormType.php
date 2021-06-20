@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Form;
 
@@ -11,6 +18,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class EventFormType
+ */
 class EventFormType extends AbstractType
 {
     /**
@@ -18,7 +28,8 @@ class EventFormType extends AbstractType
      * This method is called for each type in the hierarchy starting from the
      * top most type. Type extensions can further modify the form.
      * @param \Symfony\Component\Form\FormBuilderInterface $builder The form builder
-     * @param array $options The options
+     * @param array                                        $options The options
+     *
      * @see FormTypeExtensionInterface::buildForm()
      *
      */

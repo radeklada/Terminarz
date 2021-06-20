@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Entity;
 
@@ -26,6 +33,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=30, nullable=false)
+     *
      * @Assert\NotBlank()
      */
     private $firstName = '';
@@ -34,6 +42,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=30, nullable=false)
+     *
      * @Assert\NotBlank()
      */
     private $lastName = '';
@@ -42,6 +51,9 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="phone_number", type="string", length=20, nullable=false)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Regex(pattern="/^(\([0-9]+\))?([+0-9 -]+)$/")
      */
     private $phoneNumber = '';
 
@@ -49,12 +61,14 @@ class Contact
      * @var string|null
      *
      * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     *
+     * @Assert\NotBlank()
      * @Assert\Email()
      */
     private $email;
 
     /**
-     * @var User
+     * @var \App\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({

@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Controller;
 
@@ -17,16 +24,23 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ContactController extends AbstractController
 {
-    /** @var ContactService */
+    /** @var \App\Service\ContactService */
     private $contactService;
 
+    /**
+     * ContactController constructor.
+     * @param \App\Service\ContactService $contactService
+     */
     public function __construct(ContactService $contactService)
     {
         $this->contactService = $contactService;
     }
 
     /**
-     * @return Response HTTP response
+     * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
      * @Route(
      *     "/",
      *     methods={"GET"},
@@ -43,8 +57,10 @@ class ContactController extends AbstractController
 
     /**
      * Create action.
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
+     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
+     *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      *
@@ -78,9 +94,11 @@ class ContactController extends AbstractController
     /**
      * Edit action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Category                      $contact           Contact entity
+     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
+     * @param \App\Entity\Category                      $contact Contact entity
+     *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      *
@@ -117,8 +135,8 @@ class ContactController extends AbstractController
     /**
      * Delete action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Category                      $contact           Contact entity
+     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
+     * @param \App\Entity\Category                      $contact Contact entity
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *

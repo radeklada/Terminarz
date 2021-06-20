@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Entity;
 
@@ -26,6 +33,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=false)
+     *
      * @Assert\NotBlank()
      */
     private $name = '';

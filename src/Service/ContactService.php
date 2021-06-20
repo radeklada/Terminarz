@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Service;
 
@@ -7,6 +14,9 @@ use App\Repository\ContactRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
+/**
+ * Class ContactService
+ */
 class ContactService
 {
     const PAGINATOR_ITEMS_PER_PAGE = 10;
@@ -16,6 +26,11 @@ class ContactService
     /** @var PaginatorInterface */
     private $paginator;
 
+    /**
+     * ContactService constructor.
+     * @param \App\Repository\ContactRepository       $contactRepository
+     * @param \Knp\Component\Pager\PaginatorInterface $paginator
+     */
     public function __construct(ContactRepository $contactRepository, PaginatorInterface $paginator)
     {
         $this->contactRepository = $contactRepository;
@@ -24,7 +39,8 @@ class ContactService
 
     /**
      * @param int $page
-     * @return PaginationInterface
+     *
+     * @return Knp\Component\Pager\Pagination\PaginationInterface
      */
     public function createPaginatedList(int $page): PaginationInterface
     {
@@ -37,7 +53,8 @@ class ContactService
 
     /**
      * Zapisuje do bazy
-     * @param Contact $contact
+     * @param \App\Entity\Contact $contact
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -48,7 +65,8 @@ class ContactService
 
     /**
      * Usuwa z bazy
-     * @param Contact $contact
+     * @param \App\Entity\Contact $contact
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */

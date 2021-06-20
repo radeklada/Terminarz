@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Service;
 
@@ -7,6 +14,9 @@ use App\Repository\CategoryRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
+/**
+ * Class CategoryService
+ */
 class CategoryService
 {
     const PAGINATOR_ITEMS_PER_PAGE = 10;
@@ -16,6 +26,11 @@ class CategoryService
     /** @var PaginatorInterface */
     private $paginator;
 
+    /**
+     * CategoryService constructor.
+     * @param \App\Repository\CategoryRepository      $categoryRepository
+     * @param \Knp\Component\Pager\PaginatorInterface $paginator
+     */
     public function __construct(CategoryRepository $categoryRepository, PaginatorInterface $paginator)
     {
         $this->categoryRepository = $categoryRepository;
@@ -24,7 +39,8 @@ class CategoryService
 
     /**
      * @param int $page
-     * @return PaginationInterface
+     *
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface
      */
     public function createPaginatedList(int $page): PaginationInterface
     {
@@ -37,7 +53,8 @@ class CategoryService
 
     /**
      * Zapisuje do bazy
-     * @param Category $category
+     * @param \App\Entity\Category $category
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -48,7 +65,8 @@ class CategoryService
 
     /**
      * Usuwa z bazy
-     * @param Category $category
+     * @param \App\Entity\Category $category
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */

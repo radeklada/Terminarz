@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Controller;
 
@@ -22,13 +29,20 @@ class CategoryController extends AbstractController
      */
     private $categoryService;
 
+    /**
+     * CategoryController constructor.
+     * @param \App\Service\CategoryService $categoryService
+     */
     public function __construct(CategoryService $categoryService)
     {
         $this->categoryService = $categoryService;
     }
 
     /**
-     * @return Response HTTP response
+     * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
      * @Route(
      *     "/",
      *     methods={"GET"},
@@ -45,8 +59,10 @@ class CategoryController extends AbstractController
 
     /**
      * Create action.
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
+     * @param \Symfony\Component\HttpFoundation\Request $request HTTP request
+     *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      *
@@ -79,9 +95,11 @@ class CategoryController extends AbstractController
     /**
      * Edit action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Category                      $category           Category entity
+     * @param \Symfony\Component\HttpFoundation\Request $request  HTTP request
+     * @param \App\Entity\Category                      $category Category entity
+     *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      *
@@ -117,8 +135,8 @@ class CategoryController extends AbstractController
     /**
      * Delete action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Category                      $category           Category entity
+     * @param \Symfony\Component\HttpFoundation\Request $request  HTTP request
+     * @param \App\Entity\Category                      $category Category entity
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP response
      *

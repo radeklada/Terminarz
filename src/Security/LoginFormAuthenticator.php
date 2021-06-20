@@ -1,4 +1,11 @@
 <?php
+/*
+ * This file is part of the Terminarz application.
+ *
+ * (c) Radek Łada <radlad98@gmail.com>
+ *
+ * For the full copyright and license information, please contact the author.
+ */
 
 namespace App\Security;
 
@@ -19,6 +26,9 @@ use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticato
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
+/**
+ * Class LoginFormAuthenticator
+ */
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
@@ -26,15 +36,32 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     public const LOGIN_ROUTE = 'app_login';
 
     /**
-     * User repository.
      * @var \App\Repository\UserRepository
      */
     private $userRepository;
 
+    /**
+     * @var \Symfony\Component\Routing\Generator\UrlGeneratorInterface
+     */
     private $urlGenerator;
+
+    /**
+     * @var \Symfony\Component\Security\Csrf\CsrfTokenManagerInterface
+     */
     private $csrfTokenManager;
+
+    /**
+     * @var \Symfony\Component\Security\Core\User\UserInterface\UserPasswordEncoderInterface
+     */
     private $passwordEncoder;
 
+    /**
+     * LoginFormAuthenticator constructor.
+     * @param \App\Repository\UserRepository                                                   $userRepository
+     * @param \Symfony\Component\Routing\Generator\UrlGeneratorInterface                       $urlGenerator
+     * @param \Symfony\Component\Security\Csrf\CsrfTokenManagerInterface                       $csrfTokenManager
+     * @param \Symfony\Component\Security\Core\User\UserInterface\UserPasswordEncoderInterface $passwordEncoder
+     */
     public function __construct(UserRepository $userRepository, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->userRepository = $userRepository;
@@ -43,12 +70,22 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         $this->passwordEncoder = $passwordEncoder;
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return bool
+     */
     public function supports(Request $request)
     {
         return self::LOGIN_ROUTE === $request->attributes->get('_route')
             && $request->isMethod('POST');
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return array
+     */
     public function getCredentials(Request $request)
     {
         $credentials = [
@@ -64,6 +101,12 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return $credentials;
     }
 
+    /**
+     * @param array                                                       $credentials
+     * @param \Symfony\Component\Security\Core\User\UserProviderInterface $userProvider
+     *
+     * @return \Symfony\Component\Security\Core\User\UserInterface
+     */
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
         $token = new CsrfToken('authenticate', $credentials['csrf_token']);
@@ -80,6 +123,12 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return $user;
     }
 
+    /**
+     * @param array         $credentials
+     * @param UserInterface $user
+     *
+     * @return bool
+     */
     public function checkCredentials($credentials, UserInterface $user)
     {
         return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
@@ -87,12 +136,22 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
+     * @param mixed $credentials
+     *
+     * @return string|null
      */
     public function getPassword($credentials): ?string
     {
         return $credentials['password'];
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request                            $request
+     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface $token
+     * @param string                                                               $providerKey
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
@@ -102,6 +161,9 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return new RedirectResponse($this->urlGenerator->generate('homepage_index'));
     }
 
+    /**
+     * @return string
+     */
     protected function getLoginUrl()
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
